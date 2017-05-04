@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS people;
 CREATE TABLE people
 (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255),
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
   budget INT4
 );
 
