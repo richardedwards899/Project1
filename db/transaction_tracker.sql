@@ -1,24 +1,26 @@
-DROP TABLE ;
-DROP TABLE ;
-DROP TABLE ;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS people;
 
-CREATE TABLE zombies
+CREATE TABLE people
 (
-  id SERIAL8 primary key,
-  name VARCHAR(255) not null,
-  type VARCHAR(255)
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
+  budget INT4
 );
 
-CREATE TABLE victims
+CREATE TABLE transactions
 (
-  id SERIAL8 primary key,
-  name VARCHAR(255) not null,
-  run_speed INT2
+  id SERIAL4 PRIMARY KEY,
+  person_id INT4 REFERENCES people(id) ON DELETE CASCADE
+  tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE 
+  merchant VARCHAR(255),
+  value INT4,
+  purchased_on DATE
 );
 
-CREATE TABLE bitings
+CREATE TABLE tags
 (
-  id SERIAL8 primary key,
-  victim_id INT8 references victims(id),
-  zombie_id INT8 references zombies(id)
+  id SERIAL4 PRIMARY KEY,
+  tag_name VARCHAR(255),
 );
