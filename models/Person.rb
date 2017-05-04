@@ -35,10 +35,11 @@ class Person
     return people_hashes.map { |person_hash| Person.new(person_hash) }
   end
 
-  # def Customer.delete_all()
-  #   sql = "DELETE FROM customers;"
-  #   SqlRunner.run(sql)
-  # end
+  def Person.delete_all()
+    sql = "DELETE FROM people;"
+    SqlRunner.run(sql)
+    return nil
+  end
 
   def Person.find(id)
     sql = "SELECT * FROM people WHERE id = #{id};"
