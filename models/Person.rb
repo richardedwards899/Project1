@@ -14,32 +14,33 @@ class Person
   def save
     sql = "INSERT INTO people ( first_name, last_name, budget ) VALUES ( '#{@first_name}', '#{@last_name}', #{@budget} ) RETURNING id;"
     @id = SqlRunner.run(sql)[0][:id].to_i
+    return nil
   end  
 
-  # def house
-  #   sql = "SELECT * FROM houses WHERE id = #{@house_id}"
-  #   houses_array = SqlRunner.run(sql)
-  #   found_houses = houses_array.map { |house| House.new(house) }
-  #   return found_houses[0]
-  # end
+  def update()
+    sql = "UPDATE people SET ( first_name, last_name, budget ) = ( '#{@first_name}', '#{@last_name}', #{@budget} ) WHERE id = #{@id};"
+    SqlRunner.run(sql)
+    return nil
+  end
 
-  # def Student.find(id)
-  #   sql = "SELECT * FROM students WHERE id=#{id};"
-  #   student = SqlRunner.run( sql )[0]
-  #   return Student.new( student )
-  # end
-
-  # def Student.delete_all 
-  #   sql = "DELETE FROM students;"
+  # def delete()
+  #   sql = "DELETE FROM customers where id = #{@id};"
   #   SqlRunner.run(sql)
-  #   return nil
   # end
 
-  # def Student.find_all
-  #   sql = "SELECT * FROM students"
-  #   student_array = SqlRunner.run(sql)
-  #   students = student_array.map { |student| Student.new(student)}
-  #   return students
+  # def Customer.all()
+  #   sql = "SELECT * FROM customers;"
+  #   customer_hashes = SqlRunner.run(sql)
+  #   return customer_hashes.map { |customer_hash| Customer.new(customer_hash) }
   # end
 
+  # def Customer.delete_all()
+  #   sql = "DELETE FROM customers;"
+  #   SqlRunner.run(sql)
+  # end
+
+  # def Customer.find(id)
+  #   sql = "SELECT * FROM customers WHERE id = #{id};"
+  #   return Customer.new ( SqlRunner.run(sql)[0] )
+  # end
 end
