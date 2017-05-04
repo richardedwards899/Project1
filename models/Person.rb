@@ -5,16 +5,16 @@ class Person
   attr_reader :first_name, :last_name, :budget
 
   def initialize(params)
+    @id = params['id'].to_i if params['id']
     @first_name = params['first_name']
     @last_name = params['last_name']
     @budget = params['budget'].to_i
   end
 
-  # def save
-  #   sql = "INSERT INTO students (first_name, last_name, age, house_id) VALUES ('#{@first_name}', '#{@last_name}', #{@age}, #{@house_id}) RETURNING id;"
-  #   student_hash = SqlRunner.run(sql).first
-  #   @id = student_hash[:id].to_i
-  # end  
+  def save
+    sql = "INSERT INTO people ( first_name, last_name, budget ) VALUES ( '#{@first_name}', '#{@last_name}', #{@budget} ) RETURNING id;"
+    @id = SqlRunner.run(sql)[0][:id].to_i
+  end  
 
   # def house
   #   sql = "SELECT * FROM houses WHERE id = #{@house_id}"
