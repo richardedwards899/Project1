@@ -2,7 +2,8 @@ require_relative('../db/sql_runner.rb')
 
 class Person
 
-  attr_reader :first_name, :last_name, :budget
+  attr_accessor :first_name, :last_name, :budget
+  attr_reader :id
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -13,7 +14,7 @@ class Person
 
   def save
     sql = "INSERT INTO people ( first_name, last_name, budget ) VALUES ( '#{@first_name}', '#{@last_name}', #{@budget} ) RETURNING id;"
-    @id = SqlRunner.run(sql)[0][:id].to_i
+    @id = SqlRunner.run(sql)[0]['id'].to_i
     return nil
   end  
 

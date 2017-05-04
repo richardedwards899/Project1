@@ -15,7 +15,10 @@ person1 = Person.new({
   "budget" => 1_000_000
   })
 
-person1.save
+# person1.save
+
+# person1.first_name = "George"
+# person1.update
 
 binding.pry
 nil
