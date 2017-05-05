@@ -27,6 +27,13 @@ class Tag
     SqlRunner.run(sql)
   end
 
+  def total_spent
+    sql = "
+    SELECT SUM (value) FROM transactions
+    WHERE tag_id = #{@id};"
+    return SqlRunner.run(sql)[0]['sum'].to_i
+  end
+
   def Tag.all()
     sql = "SELECT * FROM tags;"
     tag_hashes = SqlRunner.run(sql)

@@ -26,15 +26,15 @@
 
 <!-- Show total expenditure by tag -->
 <table>
-<tr>
-  <th>Catgory</th><th>Total spent</th>
-</tr>
-<% for tag in @tags %>
-<% %>
-<% %>
-<% end %>
-<% %>
-
+  <tr>
+    <th>Catgory</th><th>Total spent</th>
+  </tr>
+  <% for tag in @tags %>
+    <tr>
+      <td><%= tag.tag_name %></td>
+      <td><%= tag.total_spent %></td>
+    </tr>
+  <% end %>
 
 </table>
 
