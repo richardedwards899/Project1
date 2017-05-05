@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('../models/Tag.rb')
 
 class Transaction
 
@@ -36,6 +37,19 @@ class Transaction
   def delete()
     sql = "DELETE FROM transactions where id = #{@id};"
     SqlRunner.run(sql)
+  end
+
+  def category
+    sql =
+    "SELECT * FROM tags
+    WHERE tags.id = #{@tag_id};"
+    tag_hash = SqlRunner.run(sql)[0]
+    return Tag.new(tag_hash) 
+  end
+
+  def Transaction.total_spent
+    sql = "SELECT SUM (value) FROM transactions;"
+    return SqlRunner.run(sql)[0]['sum'].to_i
   end
 
   def Transaction.all()

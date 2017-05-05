@@ -1,0 +1,41 @@
+<!-- We want to use Ruby to display all our transactions -->
+
+<p>Here are your current transactions:</p>
+
+<table>
+  <tr>
+    <th>Date posted</th>
+    <th>Merchant</th>
+    <th>Amount</th>
+  </tr>
+  <% for transaction in @transactions %>
+  <tr>
+    <td><%= transaction.purchased_on %></td>
+    <td><%= transaction.merchant %></td>
+    <td><%= transaction.value %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td>Grand total</td><td></td><td><%= @total_spent %></td>    
+  </tr>
+</table>
+
+<form method="GET" action="/transactions/new" >
+  <input type="submit" value="Log new transaction" />
+</form>
+
+<!-- Show total expenditure by tag -->
+<table>
+<tr>
+  <th>Catgory</th><th>Total spent</th>
+</tr>
+<% for tag in @tags %>
+<% %>
+<% %>
+<% end %>
+<% %>
+
+
+</table>
+
+
