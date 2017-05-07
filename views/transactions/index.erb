@@ -4,25 +4,53 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Date posted</th>
+    <th>Category</th>
     <th>Merchant</th>
     <th>Amount</th>
+    <th></th>
   </tr>
   <% for transaction in @transactions %>
   <tr>
+    <td>
+      <form method="GET" action="/transactions/<%= transaction.id %>/edit">
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
     <td><%= transaction.purchased_on %></td>
+    <td><%= transaction.category.tag_name %></td>
     <td><%= transaction.merchant %></td>
     <td><%= transaction.value %></td>
+    <td>
+      <form method="POST" action="/transactions/<%= transaction.id %>/delete">
+        <input type="submit" value="Delete"/>
+      </form>
+    </td>
   </tr>
   <% end %>
   <tr>
-    <td>Grand total</td><td></td><td><%= @total_spent %></td>    
+    <td></td>
+    <td>Grand total</td>
+    <td></td>
+    <td></td>
+    <td><%= @total_spent %></td>
+    <td></td>    
   </tr>
 </table>
 
 <form method="GET" action="/transactions/new" >
   <input type="submit" value="Log new transaction" />
 </form>
+
+<!-- show a warning if budget breached! -->
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
 
 <!-- Show total expenditure by tag -->
 <table>

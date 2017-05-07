@@ -1,0 +1,25 @@
+<form method="POST" action="/transactions/<%= @transaction.id %>">
+
+  <label for="merchant_field">Merchant:</label>
+  <input id="merchant_field" name="merchant" type="text" value= "<%= @transaction.merchant %>">
+
+  <label for="value_field">Amount:</label>
+  <input id="value_field" name="value" type="number" value="<%= @transaction.value %>">
+
+  <label for="purchased_field">Purchased:</label>
+  <input id="purchased_field" name="purchased_on" type="date" value="<%= @transaction.purchased_on %>">
+
+  <label for="category-select">Select expense category:</label>
+  <select id="category-select" name="tag_id">
+    <% for tag in @tags %>
+      <option value="<%= tag.id %>" <%= "selected" if tag.id == @transaction.tag_id %>><%= tag.tag_name %>
+      </option>
+    <% end %>
+  </select>
+
+  <!-- we need to hard-code the person_id! -->
+  <input id="person_field" name="person_id" type="hidden" value="<%= @person.id %>">
+
+  <input type="submit" value="Save">
+
+</form>
