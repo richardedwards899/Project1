@@ -35,14 +35,14 @@ transaction1 = Transaction.new({
   "tag_id" => tag1.id,
   "merchant" => "Tesco",
   "value" => "10",
-  "purchased_on" => "17/2/2017"
+  "purchased_on" => "17/3/2017"
   })
 transaction2 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag2.id,
   "merchant" => "Ian Murray Motorcycles",
   "value" => "150",
-  "purchased_on" => "20/2/2017"
+  "purchased_on" => "20/3/2017"
   })
 transaction3 = Transaction.new({
   "person_id" => person1.id,

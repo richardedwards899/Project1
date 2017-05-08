@@ -14,14 +14,14 @@ class Transaction
     @merchant = params['merchant']
     @value = params['value'].to_i
     @purchased_on = Date.parse(params['purchased_on'])
-    # @purchased_during_month = @purchased_on
+    @purchased_during_month = Date.new(@purchased_on.year, @purchased_on.month, -1)
   end
 
   def save
     sql = "
     INSERT INTO transactions 
-    ( person_id, tag_id, merchant, value, purchased_on ) VALUES 
-    ( #{@person_id}, #{@tag_id}, '#{@merchant}', #{@value}, '#{@purchased_on}' ) 
+    ( person_id, tag_id, merchant, value, purchased_on, purchased_during_month ) VALUES 
+    ( #{@person_id}, #{@tag_id}, '#{@merchant}', #{@value}, '#{@purchased_on.to_s}', '#{@purchased_during_month.to_s}') 
     RETURNING id;"
 
     @id = SqlRunner.run(sql)[0]['id'].to_i
@@ -30,8 +30,9 @@ class Transaction
 
   def update()
     sql = "UPDATE transactions SET 
-    ( person_id, tag_id, merchant, value, purchased_on ) = 
-    ( #{@person_id}, #{@tag_id}, '#{@merchant}', #{@value}, '#{@purchased_on}' ) WHERE id = #{@id};"
+    ( person_id, tag_id, merchant, value, purchased_on, purchased_during_month ) = 
+    ( #{@person_id}, #{@tag_id}, '#{@merchant}', #{@value}, '#{@purchased_on}', '#{@purchased_during_month.to_s}' ) 
+    WHERE id = #{@id};"
     SqlRunner.run(sql)
     return nil
   end
@@ -47,6 +48,28 @@ class Transaction
     WHERE tags.id = #{@tag_id};"
     tag_hash = SqlRunner.run(sql)[0]
     return Tag.new(tag_hash) 
+  end
+
+  # returns an array of months for which there are transactions
+  def Transaction.months
+    monthly_totals_array = self.expenditure_totals_by_month
+    result_array = []
+
+    monthly_totals_array.each() { |result|
+      result_array << result['purchased_during_month'] 
+    }
+    return result_array
+  end
+
+  # returns an array of total expenditures corresponding with the month
+  def Transaction.monthly_expenditures
+    monthly_totals_array = self.expenditure_totals_by_month
+    result_array = []
+
+    monthly_totals_array.each() { |result|
+      result_array << result['sum'].to_i
+    }
+    return result_array
   end
 
   def Transaction.total_spent
@@ -70,4 +93,16 @@ class Transaction
     sql = "SELECT * FROM transactions WHERE id = #{id};"
     return Transaction.new ( SqlRunner.run(sql)[0] )
   end
+
+  private
+
+  def Transaction.expenditure_totals_by_month
+    sql = "
+    SELECT purchased_during_month, sum(value) 
+    FROM transactions 
+    GROUP BY purchased_during_month 
+    ORDER BY purchased_during_month DESC;"
+    return SqlRunner.run(sql)
+  end
+
 end

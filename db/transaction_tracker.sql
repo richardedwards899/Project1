@@ -23,7 +23,7 @@ CREATE TABLE transactions
   tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE, 
   merchant VARCHAR(255),
   value INT4,
-  purchased_on DATE
-  -- purchased_during_month DATE
+  purchased_on DATE,
+  purchased_during_month DATE
 );
 
