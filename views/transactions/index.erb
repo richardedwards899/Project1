@@ -44,13 +44,9 @@
 </form>
 
 <!-- show a warning if budget breached! -->
-<% %>
-<% %>
-<% %>
-<% %>
-<% %>
-<% %>
-<% %>
+<p>
+<%="ACHTUNG! Your expenditure to date exceeds your budget!" if @total_spent > @person.budget %>
+</p>
 
 <!-- Show total expenditure by tag -->
 <table>
