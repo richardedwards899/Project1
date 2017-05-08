@@ -9,10 +9,7 @@ require_relative( '../models/Person.rb' )
 get '/transactions' do
   @transactions = Transaction.all()
   @total_spent = Transaction.total_spent
-  @tags = Tag.all()
   @person = Person.all.first()
-  @months = Transaction.months()
-  @monthly_totals = Transaction.monthly_expenditures()
   erb ( :"transactions/index" )
 end
 

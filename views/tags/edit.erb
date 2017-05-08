@@ -1,0 +1,8 @@
+<form method="POST" action="/tags/<%= @tag.id %>">
+
+  <label for="tag_field">Category:</label>
+  <input id="tag_field" name="tag_name" type="text" value ="<%= @tag.tag_name %>">
+
+  <input type="submit" value="Save">
+
+</form>

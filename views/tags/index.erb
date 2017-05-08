@@ -1,0 +1,28 @@
+<p>Here are your current categories:</p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Category</th>
+    <th></th>
+  </tr>
+  <% for tag in @tags %>
+  <tr>
+    <td>
+      <form method="GET" action="/tags/<%= tag.id %>/edit">
+        <input type="submit" value="Edit"/>
+      </form>
+    </td>
+    <td><%= tag.tag_name %></td>
+    <td>
+      <!-- <form method="POST" action="/tags/<%= tag.id %>/delete">
+        <input type="submit" value="Delete"/>
+      </form> -->
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<form method="GET" action="/tags/new" >
+  <input type="submit" value="Create new category" />
+</form>
