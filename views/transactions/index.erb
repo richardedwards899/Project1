@@ -59,7 +59,23 @@
       <td><%= tag.total_spent %></td>
     </tr>
   <% end %>
-
 </table>
+
+<!-- show total expenditure by month -->
+<table>
+  <tr>
+    <th>Month</th><th>Total expenditure</th>
+  </tr>
+  <% for index in 0...@months.count %>
+    <tr>
+      <td><%= @months[index] %></td>
+      <td><%= @monthly_totals[index] %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
 
 
