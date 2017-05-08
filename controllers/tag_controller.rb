@@ -35,3 +35,14 @@ post '/tags/:id' do
   tag.update
   redirect to '/tags'
 end
+
+#route 7 - delete a tag, but only if there are no associated Transactions!
+post '/tags/:id/delete' do
+  tag = Tag.find(params[:id])
+  if tag.deletable
+    tag.delete
+    redirect to '/tags'
+  else 
+    erb(:"tags/delete_warning")          
+  end
+end

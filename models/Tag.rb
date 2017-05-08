@@ -43,6 +43,14 @@ class Tag
     return SqlRunner.run(sql)[0]['sum'].to_i
   end
 
+  def deletable
+    sql = "
+      SELECT COUNT(*) FROM transactions 
+      WHERE tag_id = #{@id} 
+    ;"
+    return SqlRunner.run(sql)[0]['count'].to_i == 0
+  end
+
   def Tag.all()
     sql = "SELECT * FROM tags;"
     tag_hashes = SqlRunner.run(sql)
