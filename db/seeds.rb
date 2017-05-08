@@ -13,7 +13,7 @@ Person.delete_all
 person1 = Person.new({
   "first_name" => "Richard",
   "last_name" => "Edwards",
-  "budget" => 10_000
+  "budget" => 10_000.00
   })
 
 person1.save
@@ -34,35 +34,35 @@ transaction1 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag1.id,
   "merchant" => "Tesco",
-  "value" => "10",
+  "value" => "10.99",
   "purchased_on" => "17/3/2017"
   })
 transaction2 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag2.id,
   "merchant" => "Ian Murray Motorcycles",
-  "value" => "150",
+  "value" => "150.80",
   "purchased_on" => "20/3/2017"
   })
 transaction3 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag3.id,
   "merchant" => "Top Shop",
-  "value" => "25",
+  "value" => "25.00",
   "purchased_on" => "11/2/2017"
   })
 transaction4 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag4.id,
   "merchant" => "Vue Cinemas",
-  "value" => "29",
+  "value" => "29.19",
   "purchased_on" => "10/2/2017"
   })
 transaction5 = Transaction.new({
   "person_id" => person1.id,
   "tag_id" => tag5.id,
   "merchant" => "Hotel de Las Ramblas",
-  "value" => "175",
+  "value" => "175.99",
   "purchased_on" => "1/2/2017"
   })
 

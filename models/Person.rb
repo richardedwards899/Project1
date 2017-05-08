@@ -9,7 +9,7 @@ class Person
     @id = params['id'].to_i if params['id']
     @first_name = params['first_name']
     @last_name = params['last_name']
-    @budget = params['budget'].to_i
+    @budget = params['budget'].to_f
   end
 
   def save

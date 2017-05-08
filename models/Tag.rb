@@ -36,19 +36,20 @@ class Tag
     return transaction_hashes.map { |transaction_hash| Tag.new(transaction_hash) }
   end
 
+  def deletable
+    # sql = "
+    #   SELECT COUNT(*) FROM transactions 
+    #   WHERE tag_id = #{@id} 
+    # ;"
+    # return SqlRunner.run(sql)[0]['count'].to_i == 0
+    return transactions.count == 0;
+  end
+
   def total_spent
     sql = "
     SELECT SUM (value) FROM transactions
     WHERE tag_id = #{@id};"
-    return SqlRunner.run(sql)[0]['sum'].to_i
-  end
-
-  def deletable
-    sql = "
-      SELECT COUNT(*) FROM transactions 
-      WHERE tag_id = #{@id} 
-    ;"
-    return SqlRunner.run(sql)[0]['count'].to_i == 0
+    return SqlRunner.run(sql)[0]['sum'].to_f
   end
 
   def Tag.all()

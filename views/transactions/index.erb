@@ -21,7 +21,7 @@
     <td><%= transaction.purchased_on %></td>
     <td><%= transaction.category.tag_name %></td>
     <td><%= transaction.merchant %></td>
-    <td><%= transaction.value %></td>
+    <td><%= sprintf('%.2f', transaction.value) %></td>
     <td>
       <form method="POST" action="/transactions/<%= transaction.id %>/delete">
         <input type="submit" value="Delete"/>
