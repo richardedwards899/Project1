@@ -24,5 +24,6 @@ CREATE TABLE transactions
   merchant VARCHAR(255),
   value INT4,
   purchased_on DATE
+  -- purchased_during_month DATE
 );
 

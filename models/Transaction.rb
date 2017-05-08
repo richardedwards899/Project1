@@ -1,10 +1,11 @@
+require('date')
 require_relative('../db/sql_runner.rb')
 require_relative('../models/Tag.rb')
 
 class Transaction
 
   attr_accessor :person_id, :tag_id, :merchant, :value, :purchased_on
-  attr_reader :id
+  attr_reader :id, :month_year
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -12,7 +13,8 @@ class Transaction
     @tag_id = params['tag_id'].to_i
     @merchant = params['merchant']
     @value = params['value'].to_i
-    @purchased_on = params['purchased_on']
+    @purchased_on = Date.parse(params['purchased_on'])
+    # @purchased_during_month = @purchased_on
   end
 
   def save
