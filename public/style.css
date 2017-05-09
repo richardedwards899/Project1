@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  /*background-color: pink;*/
+  font-family: Raleway;
+  color: white; 
+  font-size: 2.2em;
+  margin-left: 1em;
+  font-weight: 200;
+}
+
+#logo span {
+  font-style: italic;
+  color: #0094a7;
+  font-weight: 400;
+}
+
+#banner_bar {
+  height: 100px;
+  background-color: #26c6da;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#banner_bar ul {
+  /*background-color: gold;*/
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-family: Raleway;
+
+}
+
+#banner_bar ul li {
+  margin-right: 1.5em;
+}
+
+#banner_bar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+body {
+  background-color: white;
+}

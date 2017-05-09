@@ -3,20 +3,23 @@
   <head>
     <title>Transaction Tracker</title>
     <!-- Link to a Google font here! -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/style.css">
-  </head>
-
   <body>
     <main>
-      <h1>Transaction Tracker</h1>
-      <h2>Keep tabs on all your expenditure.</h2>
+    <!--banner_bar carries the logo and the navigation links -->
+    <div id="banner_bar">
+      <h1 id="logo">Transaction<span>Tracker</span></h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/transactions">Transactions</a></li>
+        <li><a href="/tags">Categories</a></li>
+      </ul>
+    </div>
+    
+    
 
-      <nav>
-        <ul>
-          <li><a href="/transactions">Transactions</a></li>
-          <li><a href="/tags">Expenditure categories</a></li>
-        </ul>
-      </nav>
+      
 
       <%= yield %>
 
