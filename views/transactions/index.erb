@@ -1,7 +1,4 @@
 <!-- We want to use Ruby to display all our transactions -->
-
-<p>Here are your current transactions:</p>
-
 <table>
   <tr>
     <th></th>
@@ -21,7 +18,7 @@
     <td><%= transaction.purchased_on %></td>
     <td><%= transaction.category.tag_name %></td>
     <td><%= transaction.merchant %></td>
-    <td><%= sprintf('%.2f', transaction.value) %></td>
+    <td>£<%= sprintf('%.2f', transaction.value) %></td>
     <td>
       <form method="POST" action="/transactions/<%= transaction.id %>/delete">
         <input type="submit" value="Delete"/>
@@ -29,12 +26,12 @@
     </td>
   </tr>
   <% end %>
-  <tr>
+  <tr class="total_row">
     <td></td>
-    <td>Grand total</td>
+    <td class="total">Grand total</td>
     <td></td>
     <td></td>
-    <td><%= @total_spent %></td>
+    <td class="total">£<%= sprintf('%.2f', @total_spent) %></td>
     <td></td>    
   </tr>
 </table>

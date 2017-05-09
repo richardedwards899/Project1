@@ -3,16 +3,31 @@
   padding: 0;
 }
 
-#logo {
+#logo_group {
   /*background-color: pink;*/
+  display: flex;
+  flex-direction: row;
+  margin-left: 2em;
+}
+
+#logo_image {
+  width: 50px;
+  height: 50px;
+  /*background-color: red;*/
+}
+
+#logo_text {
+  /*background-color: green;*/
   font-family: Raleway;
   color: white; 
   font-size: 2.2em;
-  margin-left: 1em;
   font-weight: 200;
+  display: inline;
+  margin-left: 0.1em;
+
 }
 
-#logo span {
+#logo_text span {
   font-style: italic;
   color: #0094a7;
   font-weight: 400;
@@ -46,6 +61,44 @@
   font-size: 1.2em;
 }
 
-body {
-  background-color: white;
+.total {
+  font-weight: 900;
 }
+
+.total_row {
+  background-color: #e2f1f8;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+p {
+  color: blue;
+}
+
+table {
+  margin-top: 50px;
+  font-family: Raleway;
+  border: 1px solid #b0bec5;
+  border-collapse: collapse;
+  border-radius: 15px;
+}
+
+th {
+  background-color: #26c6da;
+  font-weight: 400;
+  text-align: right;
+  color: white;
+  padding: 5px 40px;
+}
+
+td {
+  text-align: right;
+  color: #455a64;
+  padding: 5px 40px;
+}
+

@@ -9,19 +9,25 @@
     <main>
     <!--banner_bar carries the logo and the navigation links -->
     <div id="banner_bar">
-      <h1 id="logo">Transaction<span>Tracker</span></h1>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/transactions">Transactions</a></li>
-        <li><a href="/tags">Categories</a></li>
-      </ul>
+      
+      <div id="logo_group">
+        <img id="logo_image" src="elephant.png">
+        <h1 id="logo_text">Transaction<span>Tracker</span></h1>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/transactions">Transactions</a></li>
+          <li><a href="/tags">Categories</a></li>
+        </ul>
+      </nav>
     </div>
     
-    
-
-      
-
+    <div class="container">
+      <!-- extra html injected here -->
       <%= yield %>
+    </div>
 
     </main>
   </body>
