@@ -2,7 +2,7 @@
 <table>
   <thead>
     <tr>
-      <th>Category</th><th>Total spent</th>
+      <th>Category</th><th>Total spent</th><th>%</th>
     </tr>
   </thead>
   <tbody>
@@ -10,8 +10,12 @@
       <tr>
         <td><%= tag.tag_name %></td>
         <td>£<%= sprintf('%.2f', tag.total_spent) %></td>
+        <td><%= (tag.total_spent / @total_spent).round(2) * 100 %>%</td>
       </tr>
     <% end %>
+    <tr class="total_row">
+      <td>Total</td><td>£<%= @total_spent %></td><td>100%</td>
+    </tr>
   <tbody>
 </table>
 
@@ -20,7 +24,7 @@
 <table>
   <thead>
     <tr>
-      <th>Month</th><th>Total expenditure</th>
+      <th>Month</th><th>Total expenditure</th><th>%</th>
     </tr>
   <thead>
   <tbody>
@@ -28,7 +32,11 @@
       <tr>
         <td><%= @months[index] %></td>
         <td>£<%= sprintf('%.2f', @monthly_totals[index]) %></td>
+        <td><%= (@monthly_totals[index] / @total_spent).round(2) * 100 %>%</td>
       </tr>
     <% end %>
+    <tr class="total_row">
+      <td>Total</td><td>£<%= @total_spent %></td><td>100%</td>
+    </tr>
   </tbody>
 </table>
