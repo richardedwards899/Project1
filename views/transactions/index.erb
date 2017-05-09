@@ -1,27 +1,29 @@
 <!-- We want to use Ruby to display all our transactions -->
 <table>
   <tr>
-    <th></th>
+    <th>Edit</th>
     <th>Date posted</th>
     <th>Category</th>
     <th>Merchant</th>
     <th>Amount</th>
-    <th></th>
+    <th>Delete</th>
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td>
+    <td class="icon-cell">
       <form method="GET" action="/transactions/<%= transaction.id %>/edit">
-        <input type="submit" value="Edit"/>
+        <!-- <input type="submit" value="Edit"> -->
+        <input type="image" src="/edit_icon.png" border="0" alt="Submit"/>
       </form>
     </td>
     <td><%= transaction.purchased_on %></td>
     <td><%= transaction.category.tag_name %></td>
     <td><%= transaction.merchant %></td>
     <td>£<%= sprintf('%.2f', transaction.value) %></td>
-    <td>
+    <td class="icon-cell">
       <form method="POST" action="/transactions/<%= transaction.id %>/delete">
-        <input type="submit" value="Delete"/>
+        <!-- <input type="submit" value="Delete"/> -->
+        <input type="image" src="/delete_icon.png" border="0" alt="Submit"/>
       </form>
     </td>
   </tr>
@@ -36,21 +38,11 @@
   </tr>
 </table>
 
-<form method="GET" action="/transactions/new" >
-  <input type="submit" value="Log new transaction" />
+<form class="under-button" method="GET" action="/transactions/new" >
+  <input  type="submit" value="Log new transaction" />
 </form>
 
 <!-- show a warning if budget breached! -->
-<p>
-<%="ACHTUNG! Your expenditure to date exceeds your budget!" if @total_spent > @person.budget %>
+<p class="warning">
+<%=("ACHTUNG, "+@person.first_name + "! Your expenditure to date exceeds your budget!") if @total_spent > @person.budget %>
 </p>
-
-
-
-
-
-
-
-
-
-

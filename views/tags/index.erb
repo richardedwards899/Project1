@@ -1,26 +1,28 @@
 <table>
   <tr>
-    <th></th>
+    <th>Edit</th>
     <th>Category</th>
-    <th></th>
+    <th>Delete</th>
   </tr>
   <% for tag in @tags %>
   <tr>
-    <td>
+    <td class="icon-cell">
       <form method="GET" action="/tags/<%= tag.id %>/edit">
-        <input type="submit" value="Edit"/>
+        <!-- <input type="submit" value="Edit"/> -->
+        <input type="image" src="/edit_icon.png" border="0" alt="Submit"/>
       </form>
     </td>
     <td><%= tag.tag_name %></td>
-    <td>
+    <td class="icon-cell">
       <form method="POST" action="/tags/<%= tag.id %>/delete">
-        <input type="submit" value="Delete"/>
+        <!-- <input type="submit" value="Delete"/> -->
+        <input type="image" src="/delete_icon.png" border="0" alt="Submit"/>
       </form>
     </td>
   </tr>
   <% end %>
 </table>
 
-<form method="GET" action="/tags/new" >
+<form class="under-button" method="GET" action="/tags/new" >
   <input type="submit" value="Create new category" />
 </form>

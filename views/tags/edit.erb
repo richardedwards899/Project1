@@ -1,4 +1,4 @@
-<form method="POST" action="/tags/<%= @tag.id %>">
+<form class="edit-form" method="POST" action="/tags/<%= @tag.id %>">
 
   <label for="tag_field">Category:</label>
   <input id="tag_field" name="tag_name" type="text" value ="<%= @tag.tag_name %>">

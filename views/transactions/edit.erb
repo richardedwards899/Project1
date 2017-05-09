@@ -1,4 +1,4 @@
-<form method="POST" action="/transactions/<%= @transaction.id %>">
+<form class="edit-form" method="POST" action="/transactions/<%= @transaction.id %>">
 
   <label for="merchant_field">Merchant:</label>
   <input id="merchant_field" name="merchant" type="text" value= "<%= @transaction.merchant %>">
