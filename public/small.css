@@ -36,6 +36,10 @@
   .big-table td:nth-of-type(4):before { content: "Merchant"; }
   .big-table td:nth-of-type(5):before { content: "Amount"; }
   .big-table td:nth-of-type(6):before { content: "Delete"; }
+
+  .big-table .total_row td {
+    display: none;
+  }
   
-  .big-table .total_row td:before { content: ""; }
+
     
