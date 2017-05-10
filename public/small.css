@@ -1,49 +1,41 @@
-
-/* Force table to not be like tables anymore */
-
   .icon-cell {
     text-align: right;
-    }
+  }
 
-  .big-table thead, .big-table tbody, .big-table th, .big-table td, .big-table tr { 
+  .big-table thead, .big-table tbody, .big-table th, .big-table tr, .big-table td { 
     display: block; 
   }
 
-   .big-table th {
-      display: none;
-    }
+ .big-table th {
+    display: none;
+  }
 
-    .big-table tr:nth-of-type(even) { 
-      background: #e0e0e0;
-      text-align: right; 
-      min-width: 400px;
-    }
+  .big-table tr:nth-of-type(even) { 
+    background: #eee;
+    min-width: 400px;
+  }
 
-    .big-table tr:nth-of-type(odd) { 
-      background: #eee; 
-    }
+  .big-table tr:nth-of-type(odd) { 
+    background: white; 
+  }
 
   .big-table td { 
-      position: relative;
-    }
+    position: relative;
+  }
 
   .big-table td:before { 
-      /* Now like a table header */
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      width: 35%; 
-    }
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 35%; 
+  }
       
-    /*
-      Label the data
-      */
-      .big-table td:nth-of-type(1):before { content: "Edit"; }
-      .big-table td:nth-of-type(2):before { content: "Date posted"; }
-      .big-table td:nth-of-type(3):before { content: "Category"; }
-      .big-table td:nth-of-type(4):before { content: "Merchant"; }
-      .big-table td:nth-of-type(5):before { content: "Amount"; }
-      .big-table td:nth-of-type(6):before { content: "Delete"; }
-    }  
-
-
+  .big-table td:nth-of-type(1):before { content: "Edit"; }
+  .big-table td:nth-of-type(2):before { content: "Date posted"; }
+  .big-table td:nth-of-type(3):before { content: "Category"; }
+  .big-table td:nth-of-type(4):before { content: "Merchant"; }
+  .big-table td:nth-of-type(5):before { content: "Amount"; }
+  .big-table td:nth-of-type(6):before { content: "Delete"; }
+  
+  .big-table .total_row td:before { content: ""; }
+    
