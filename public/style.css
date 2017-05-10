@@ -89,6 +89,10 @@
   font-size: 1.5em;
 }
 
+.icon-cell {
+  text-align: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -143,8 +147,4 @@ select {
 input[type="image"] {
   width: 22px;
   vertical-align: bottom;
-}
-
-.icon-cell {
-  text-align: center;
 }
