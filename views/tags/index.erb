@@ -8,14 +8,12 @@
   <tr>
     <td class="icon-cell">
       <form method="GET" action="/tags/<%= tag.id %>/edit">
-        <!-- <input type="submit" value="Edit"/> -->
         <input type="image" src="/edit_icon.png" border="0" alt="Submit"/>
       </form>
     </td>
     <td><%= tag.tag_name %></td>
     <td class="icon-cell">
       <form method="POST" action="/tags/<%= tag.id %>/delete">
-        <!-- <input type="submit" value="Delete"/> -->
         <input type="image" src="/delete_icon.png" border="0" alt="Submit"/>
       </form>
     </td>

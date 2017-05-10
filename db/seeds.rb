@@ -9,7 +9,6 @@ Person.delete_all
 
 #create some Tags, Transactions and Persons and save them to the database.
 
-#Hard-codes the user's details...
 person1 = Person.new({
   "first_name" => "Richard",
   "last_name" => "Edwards",

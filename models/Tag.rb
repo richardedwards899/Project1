@@ -37,11 +37,6 @@ class Tag
   end
 
   def deletable
-    # sql = "
-    #   SELECT COUNT(*) FROM transactions 
-    #   WHERE tag_id = #{@id} 
-    # ;"
-    # return SqlRunner.run(sql)[0]['count'].to_i == 0
     return transactions.count == 0;
   end
 
